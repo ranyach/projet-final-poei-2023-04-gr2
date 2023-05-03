@@ -9,8 +9,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class MyAccountPage extends  BasePage {
-
+public class MyAccountPage {
+    WebDriver driver;
     @FindBy(css = "[name=register]")
     private WebElement registerBtn;
 
@@ -83,9 +83,8 @@ public class MyAccountPage extends  BasePage {
 
 
     public MyAccountPage(WebDriver driver) {
-        super(driver);
-       //this.driver = driver;
-       // PageFactory.initElements(driver, this);
+       this.driver = driver;
+       PageFactory.initElements(driver, this);
 
     }
 

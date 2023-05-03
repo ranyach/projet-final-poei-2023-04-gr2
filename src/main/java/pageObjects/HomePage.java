@@ -10,9 +10,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class HomePage  extends  BasePage{
+public class HomePage  {
 
-
+    WebDriver driver;
     @FindBy(id = "menu-item-50")
     private WebElement myAccount;
     @FindBy(id = "menu-item-40")
@@ -33,9 +33,8 @@ public class HomePage  extends  BasePage{
    // private  WebDriver driver;
 
     public HomePage(WebDriver driver) {
-        super(driver);
-       // this.driver = driver;
-       // PageFactory.initElements(driver, this);
+        this.driver = driver;
+        PageFactory.initElements(driver, this);
     }
 
     public void goToLoginPage() {

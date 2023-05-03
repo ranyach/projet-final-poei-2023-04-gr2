@@ -10,11 +10,11 @@ import java.security.NoSuchAlgorithmException;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "src/test/resources/features",
+        features = "src/test/resources/features/",
         glue = "StepDefinitions",
         plugin = { "pretty", "html:target/cucumber-reports","json:target/cucumber.json" },
         monochrome = true,
-        tags = {"@ranya"}
+        tags = {""}
 
 )
 public class TestsRunner {
