@@ -18,17 +18,12 @@ pipeline {
             steps {
                  bat "mvn test"
             }
-
-        stage('Build') {
-            steps {
-                  git 'https://github.com/ranyach/projet-final-poei-2023-04-gr2.git'
-            }
         }
     }
 
       post {
         always {
-          junit '**/target/surefire-reports/TEST-*.xml''
+          step([$class: 'Publisher', reportFilenamePattern: '**/cucumber.xml'])
         }
       }
 }
