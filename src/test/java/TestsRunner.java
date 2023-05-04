@@ -12,7 +12,10 @@ import java.security.NoSuchAlgorithmException;
 @CucumberOptions(
         features = "src/test/resources/features",
         glue = "StepDefinitions",
-        plugin = { "pretty", "html:target/cucumber-reports","json:target/cucumber.json", "junit:target/cucumber-reports/cucumber.xml"  },
+        plugin = {"pretty",
+                "html:target/cucumber-reports",
+                "json:target/cucumber.json",
+                "junit:target/cucumber-reports/cucumber.xml"},
         monochrome = true
 
 )

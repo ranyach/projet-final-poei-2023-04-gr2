@@ -11,13 +11,16 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class HomePage  extends  BasePage{
+public class HomePage extends BasePage {
 
-
+    // css locators on home page
     @FindBy(id = "menu-item-50")
     private WebElement myAccount;
     @FindBy(id = "menu-item-40")
     private WebElement shop;
+
+    @FindBy(css = "#n2-ss-6 img")
+    private WebElement homePageImg;
     @FindBy(id = "dismiss-button")
     private WebElement btnCloseGoogleAd;
 
@@ -27,26 +30,21 @@ public class HomePage  extends  BasePage{
     @FindBy(css = "[name=ad_iframe]")
     private WebElement secondIframeGoogleAd;
 
-
-    @FindBy(css = "#n2-ss-6 img")
-    private WebElement homePageImg;
-
-   // private  WebDriver driver;
-
     public HomePage(WebDriver driver) {
         super(driver);
-       // this.driver = driver;
-       // PageFactory.initElements(driver, this);
     }
 
+    // Method navigate to Login page
     public void goToLoginPage() {
-       myAccount.click();
+        myAccount.click();
 
     }
+
     public void goToShopPage() {
         shop.click();
 
     }
+
     public void closeGoogleAds() {
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -56,10 +54,10 @@ public class HomePage  extends  BasePage{
         btnCloseGoogleAd.click();
         driver.switchTo().defaultContent();
 
-       // new Actions(driver).moveByOffset(10, 10).click().build().perform();
     }
-    public  boolean doesLogoRedirectToHomePage(){
-       return homePageImg.isDisplayed();
+
+    public boolean doesLogoRedirectToHomePage() {
+        return homePageImg.isDisplayed();
     }
 
 }

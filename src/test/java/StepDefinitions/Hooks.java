@@ -17,38 +17,19 @@ public class Hooks {
 
     @Before
     public void setup() throws Exception {
-        //WebDriverManager.chromedriver().setup();
-
-        /**
-         * Ajouter arguments -> Options : Car, on utilise version 4.4.0 de selenium (ancienne version)
-         * Dernières version de Selenium (4.8.3) n'ont pas besoin de leur rajouter des arguments
-         */
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
-
-
     }
-
-
-
-
-/*
-    @Before(order=2, value="@siteOpened")
-    public void beforeScenario() {
-        driver.get("https://practice.automationtesting.in/");
-    }
-
-*/
 
 
     @After
     public void embedScreenshot(Scenario scenario) {
 
-        if(scenario.isFailed()) {
+        if (scenario.isFailed()) {
             try {
-                byte[] screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
+                byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
                 scenario.embed(screenshot, "image/png");
             } catch (WebDriverException noSupportScreenshot) {
                 System.err.println(noSupportScreenshot.getMessage());
@@ -56,8 +37,6 @@ public class Hooks {
         }
         driver.quit();
     }
-
-
 
 }
 
