@@ -4,14 +4,10 @@ pipeline {
     triggers { cron ("* * * * * ")}
 
     stages {
-        stage('Build') {
-                    steps {
-                          git 'https://github.com/ranyach/projet-final-poei-2023-04-gr2.git'
-                    }
-                }
+
         stage('Init') {
             steps {
-                echo "Testing AT project"
+                echo "Testing AT Application project"
             }
         }
         stage('Run') {
