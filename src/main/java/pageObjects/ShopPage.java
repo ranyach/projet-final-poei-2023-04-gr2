@@ -26,10 +26,7 @@ public class ShopPage extends  BasePage{
 
     @FindBy(id = "menu-item-40")
     private WebElement shopItemInMenu;
-    /*
-    @FindBy(css = ".post-165")
-    private WebElement anAvailableProduct;
-     */
+
     @FindBy(css = ".post-165 .add_to_cart_button")
     private WebElement addToCartBtn;
 
@@ -85,6 +82,7 @@ public class ShopPage extends  BasePage{
     public String checkBasketIsDisplayed() {
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        //scroll();
         wait.until(ExpectedConditions.visibilityOf(totalProductBasket));
         return totalProductBasket.getText();}
     public void clickOnCartIcon(){
@@ -97,6 +95,7 @@ public class ShopPage extends  BasePage{
     }
     public boolean isReaDMoreDisplayed(){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        scroll();
         return wait.until(ExpectedConditions.visibilityOf(readMoreBtn)).isDisplayed();
 
     }
@@ -121,8 +120,6 @@ public class ShopPage extends  BasePage{
         wait.until(ExpectedConditions.elementToBeClickable(addToBasketBtn));
         addToBasketBtn.click();
         zoomer(5);
-
-     //  new Actions(driver).moveToElement(addToBasketBtn,0,15).click().build().perform();
     }
     public void goToFirstProduct(){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));

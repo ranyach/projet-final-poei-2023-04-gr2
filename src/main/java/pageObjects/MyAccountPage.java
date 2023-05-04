@@ -14,7 +14,6 @@ public class MyAccountPage extends  BasePage {
     @FindBy(css = "[name=register]")
     private WebElement registerBtn;
 
-    //Locating Login Button
     @FindBy(css = "[name=login]")
     private WebElement loginBtn;
     @FindBy(id = "reg_email")
@@ -79,13 +78,8 @@ public class MyAccountPage extends  BasePage {
     @FindBy(css = "#site-logo a")
     private WebElement logo;
 
-   // private WebDriver driver;
-
-
     public MyAccountPage(WebDriver driver) {
         super(driver);
-       //this.driver = driver;
-       // PageFactory.initElements(driver, this);
 
     }
 

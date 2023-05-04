@@ -5,18 +5,17 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.WebDriver;
 import pageObjects.*;
 
 public class HomeStepdefs {
 
     String url = "https://practice.automationtesting.in/";
-   // private WebDriver driver;
     HomePage homePage;
 
-    public HomeStepdefs(){
+    public HomeStepdefs() {
         homePage = new HomePage(Hooks.driver);
     }
+
     @Given("J ouvre l application")
     public void jOuvreLApplication() {
         Hooks.driver.get(url);
@@ -24,7 +23,6 @@ public class HomeStepdefs {
 
     @When("Je vais dans l espace My account")
     public void jeVaisDansLEspaceMyAccount() {
-       // Hooks.driver.get(url);
         homePage.goToLoginPage();
         homePage.closeGoogleAds();
     }
@@ -34,9 +32,7 @@ public class HomeStepdefs {
         Hooks.driver.get(url);
         homePage.goToLoginPage();
         homePage.closeGoogleAds();
-
     }
-
 
     @And("Je suis dans l espace My account")
     public void jeSuisDansLEspaceMyAccount() {
@@ -61,7 +57,7 @@ public class HomeStepdefs {
                 homePage.closeGoogleAds();
                 shop.addProductToCartAndViewBasket();
 
-            break;
+                break;
             case "Product":
                 homePage.goToShopPage();
                 homePage.closeGoogleAds();
@@ -81,23 +77,23 @@ public class HomeStepdefs {
         switch (pageName) {
             case "Home":
                 p = this.homePage;
-                Assert.assertTrue("Le logo n'existe pas sur la page "+ pageName, p.doesLogoExists());
+                Assert.assertTrue("Le logo n'existe pas sur la page " + pageName, p.doesLogoExists());
                 break;
             case "My Account":
                 p = new MyAccountPage(Hooks.driver);
-                Assert.assertTrue("Le logo n'existe pas sur la page "+ pageName, p.doesLogoExists());
+                Assert.assertTrue("Le logo n'existe pas sur la page " + pageName, p.doesLogoExists());
                 break;
             case "Cart":
                 p = new CartPage(Hooks.driver);
-                Assert.assertTrue("Le logo n'existe pas sur la page "+ pageName, p.doesLogoExists());
+                Assert.assertTrue("Le logo n'existe pas sur la page " + pageName, p.doesLogoExists());
                 break;
             case "Product":
                 p = new ProductPage(Hooks.driver);
-                Assert.assertTrue("Le logo n'existe pas sur la page "+ pageName, p.doesLogoExists());
+                Assert.assertTrue("Le logo n'existe pas sur la page " + pageName, p.doesLogoExists());
                 break;
             case "Shop":
                 p = new ShopPage(Hooks.driver);
-                Assert.assertTrue("Le logo n'existe pas sur la page "+ pageName, p.doesLogoExists());
+                Assert.assertTrue("Le logo n'existe pas sur la page " + pageName, p.doesLogoExists());
                 break;
             default:
                 break;
@@ -105,7 +101,6 @@ public class HomeStepdefs {
 
 
     }
-
 
 
     @When("je clique sur le logo AT en haut à gauche de la page {string}")
